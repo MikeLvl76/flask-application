@@ -1,2 +1,5 @@
 # vitrual environment
 venv
+
+# python cache
+__pycache__
