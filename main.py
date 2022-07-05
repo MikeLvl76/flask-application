@@ -11,3 +11,10 @@ def home():
 @app.route('/hello/<name>')
 def hello(name):
     return render_template('hello.html', name=name)
+
+@app.route('/sort/')
+@app.route('/sort/<text>')
+def sort(text):
+    array = text.strip('][').split(', ')
+    list.sort(array)
+    return render_template('sort.html', unsort=text, sorted=array)
