@@ -5,6 +5,9 @@
 {% block content %}
 
 <p>Starting list : {{ unsort }}</p>
+{% for key, value in form.items() %}
+<p>{{ key }} = {{ value }} </p>
+{% endfor %}
 <p>Sorted list : {{ sorted }}</p>
 <a href="/">Back</a>
 
