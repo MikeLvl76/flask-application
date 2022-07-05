@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<input type=button onClick="window.location.href='{{ url_for('hello', name='test') }}';" value='Click to say hello !'>
+
+{% endblock %}
