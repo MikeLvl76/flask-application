@@ -4,19 +4,29 @@
 
 {% block content %}
 
-<h1>Enter your name for being greeted</h1>
-<form action="/hello" method="post">
-    <label for="entry">Enter your name <input type="text" name="name"></label>
-    <input type="submit" value="Send">
-</form>
-<h1>Do you want to sort a list ?</h1>
-<form action="/sort" method="post">
-    <label for="entry">Value 1<input type="number" name="v1" min="0"></label></br>
-    <label for="entry">Value 2<input type="number" name="v2" min="0"></label></br>
-    <label for="entry">Value 3<input type="number" name="v3" min="0"></label></br>
-    <label for="entry">Value 4<input type="number" name="v4" min="0"></label></br>
-    <label for="entry">Value 5<input type="number" name="v5" min="0"></label></br>
-    <input type="submit" value="Send">
-</form>
+<div class="form-wrapper">
+    <h2 class="title">Encrypting message</h2>
+
+    <form method="POST" action="/">
+        {{ form.csrf_token }}
+        <fieldset class="form-field">
+            {{ form.message.label }}
+            {{ form.message(size=20) }}
+        </fieldset>
+
+        <fieldset class="form-field">
+            {{ form.types.label }}
+            {{ form.types }}
+        </fieldset>
+
+        {{ form.submit }}
+
+    </form>
+</div>
+
+<h2>Your encrypted message</h2>
+<div>
+    <p id="result">{{ result }}</p>
+</div>
 
 {% endblock %}
