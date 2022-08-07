@@ -9,18 +9,20 @@
 
     <form method="POST" action="/">
         {{ form.csrf_token }}
-        <fieldset class="form-field">
-            {{ form.message.label }}
-            {{ form.message(size=20) }}
+        <fieldset class="form-field" style="width: auto;">
+            {{ form.message.label }}</br>
+            {{ form.message(size=100) }}
         </fieldset>
 
-        <fieldset class="form-field">
-            {{ form.types.label }}
+        <fieldset class="form-field" style="width: auto;">
+            {{ form.types.label }}</br>
             {{ form.types }}
         </fieldset>
 
-        {{ form.submit }}
-
+        <div style="width: auto;">
+            {{ form.submit }}
+        </div>
+        
     </form>
 </div>
 

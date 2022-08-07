@@ -1,17 +1,23 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, SubmitField
+from wtforms import TextAreaField, SelectField, SubmitField
 from wtforms.validators import DataRequired, Length
 
 
 class Form(FlaskForm):
-    message = StringField(
-        'Message',
+    message = TextAreaField(
+        'Message (500 characters max.)',
         [DataRequired()]
     )
     types = SelectField(
-        u'Types', 
+        u'Type', 
         choices=[
-            ('ascii', 'Ascii'), ('digit', 'Digit'), ('emoji', 'Emoji')
+            ('lowercase', 'Lowercase'), 
+            ('uppercase', 'Uppercase'), 
+            ('digit', 'Digit'), 
+            ('symbol1', 'Symbol 1'),
+            ('symbol2', 'Symbol 2'),
+            ('symbol3', 'Symbol 3'),
+            ('emoji', 'Emoji')
         ]
     )
     submit = SubmitField('Submit')
