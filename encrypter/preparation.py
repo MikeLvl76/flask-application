@@ -7,6 +7,13 @@ from os.path import isdir
 # classic alphabet size
 romanic_alphabet_length = 26
 
+ascii_type = {
+    'lowercase': [(97, 122)],
+    'uppercase': [(65, 90)],
+    'digit': [(48, 57)],
+    'symbol': [(33, 47), (58, 64), (91, 96)]
+}
+
 # fecthes all files with given extension and returns it as dictionnary
 def fetch_files(extension: str):
     if not isdir('resources_files'):
@@ -39,29 +46,6 @@ def write_emojis(filename: str):
     with open(f'resources_files{sep}{filename}', 'w', encoding='utf-8') as writer:
         for item in collect:
             writer.write(item + '\n')
-
-# writes ASCII character (uppercase and lowercas) in txt file
-# for each line, two characters are seperated by '-' as separator, example: A-a
-def write_ASCII(filename: str):
-    file = fetch_files('txt')
-    if filename in file.values():
-        print(f'Rewritting {filename}...')
-
-    with open(f'resources_files{sep}{filename}', 'w', encoding='utf-8') as writer:
-        for i in range(romanic_alphabet_length):
-            writer.write(f'{chr(65 + i)}-{chr(97 + i)}\n')
-
-# writes digit from 0 to 9
-def write_digit(filename: str):
-    file = fetch_files('txt')
-    if filename in file.values():
-        print(f'Rewritting {filename}...')
-
-    with open(f'resources_files{sep}{filename}', 'w', encoding='utf-8') as writer:
-        for i in range(romanic_alphabet_length):
-            writer.write(f'{i}\n')
     
 if __name__ == '__main__':
     write_emojis('emoji.txt')
-    write_ASCII('ascii.txt')
-    write_digit('digit.txt')
